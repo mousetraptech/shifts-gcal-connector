@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment and secrets
+.env
+credentials.json
+google-token.json
+token-cache.json
+
+# Sync state
+sync-state.json
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+.claude

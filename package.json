@@ -1,0 +1,26 @@
+{
+  "name": "shifts-gcal-connector",
+  "version": "1.0.0",
+  "description": "Sync Microsoft Teams Shifts to Google Calendar",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "sync": "node dist/index.js",
+    "auth:microsoft": "node dist/index.js --auth microsoft",
+    "auth:google": "node dist/index.js --auth google"
+  },
+  "keywords": ["microsoft-teams", "shifts", "google-calendar", "sync"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@azure/msal-node": "^2.16.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "googleapis": "^144.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

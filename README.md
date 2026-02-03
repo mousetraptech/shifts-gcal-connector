@@ -88,6 +88,16 @@ npm run sync
 
 Tokens are saved locally for future runs (no re-authentication needed).
 
+### Dry Run
+
+Preview what would be synced without making any changes:
+
+```bash
+npm run sync -- --dry-run
+# or
+npm run sync -- -n
+```
+
 ### Scheduled Sync
 
 Add a cron job to sync automatically. First, find your npm path:

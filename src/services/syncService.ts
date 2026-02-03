@@ -89,7 +89,7 @@ export class SyncService {
     }
 
     // Convert shift to calendar event
-    const event = shiftToCalendarEvent(shift);
+    const event = shiftToCalendarEvent(shift, this.config.sync.defaultEventTitle);
     if (!event) {
       result.skipped++;
       return;

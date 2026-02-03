@@ -31,6 +31,7 @@ export function loadConfig(): Config {
     sync: {
       daysAhead: parseInt(optionalEnv('SYNC_DAYS_AHEAD', '30'), 10),
       stateFilePath: resolve(optionalEnv('STATE_FILE_PATH', './sync-state.json')),
+      defaultEventTitle: optionalEnv('DEFAULT_EVENT_TITLE', 'Work Shift'),
     },
     tokenCachePath: resolve(optionalEnv('TOKEN_CACHE_PATH', './token-cache.json')),
   };

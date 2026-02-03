@@ -93,6 +93,7 @@ export interface Config {
   sync: {
     daysAhead: number;
     stateFilePath: string;
+    defaultEventTitle: string;
   };
   tokenCachePath: string;
 }

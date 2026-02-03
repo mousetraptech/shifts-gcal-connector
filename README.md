@@ -134,6 +134,7 @@ crontab -l
 | `TOKEN_CACHE_PATH` | `./token-cache.json` | Path to Microsoft token cache |
 | `SYNC_DAYS_AHEAD` | `30` | Number of days to sync |
 | `STATE_FILE_PATH` | `./sync-state.json` | Path to sync state file |
+| `DEFAULT_EVENT_TITLE` | `Work Shift` | Fallback title when shift has no name |
 
 ## How It Works
 

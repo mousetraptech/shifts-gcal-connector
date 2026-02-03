@@ -25,6 +25,7 @@ export function generateEventId(shiftId: string): string {
 
 export function shiftToCalendarEvent(
   shift: Shift,
+  defaultTitle: string,
   timeZone: string = Intl.DateTimeFormat().resolvedOptions().timeZone
 ): CalendarEventInput | null {
   const shiftData = shift.sharedShift;
@@ -33,7 +34,7 @@ export function shiftToCalendarEvent(
     return null;
   }
 
-  const title = shiftData.displayName || '🎵 KMFA MOD Shift';
+  const title = shiftData.displayName || defaultTitle;
   const colorId = THEME_TO_COLOR[shiftData.theme] || '8';
 
   // Build description from notes and activities

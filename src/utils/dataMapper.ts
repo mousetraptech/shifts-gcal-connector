@@ -17,6 +17,13 @@ const THEME_TO_COLOR: Record<ShiftTheme, string> = {
   darkYellow: '5', // Banana
 };
 
+export interface EventOptions {
+  defaultTitle: string;
+  defaultColor: string;
+  useTeamsColors: boolean;
+  timeZone?: string;
+}
+
 export function generateEventId(shiftId: string): string {
   // Google Calendar event IDs must be lowercase alphanumeric
   // Remove non-alphanumeric characters and convert to lowercase
@@ -25,9 +32,15 @@ export function generateEventId(shiftId: string): string {
 
 export function shiftToCalendarEvent(
   shift: Shift,
-  defaultTitle: string,
-  timeZone: string = Intl.DateTimeFormat().resolvedOptions().timeZone
+  options: EventOptions
 ): CalendarEventInput | null {
+  const {
+    defaultTitle,
+    defaultColor,
+    useTeamsColors,
+    timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone,
+  } = options;
+
   const shiftData = shift.sharedShift;
 
   if (!shiftData) {
@@ -35,7 +48,9 @@ export function shiftToCalendarEvent(
   }
 
   const title = shiftData.displayName || defaultTitle;
-  const colorId = THEME_TO_COLOR[shiftData.theme] || '8';
+  const colorId = useTeamsColors
+    ? (THEME_TO_COLOR[shiftData.theme] || defaultColor)
+    : defaultColor;
 
   // Build description from notes and activities
   const descriptionParts: string[] = [];

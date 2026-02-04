@@ -32,6 +32,8 @@ export function loadConfig(): Config {
       daysAhead: parseInt(optionalEnv('SYNC_DAYS_AHEAD', '30'), 10),
       stateFilePath: resolve(optionalEnv('STATE_FILE_PATH', './sync-state.json')),
       defaultEventTitle: optionalEnv('DEFAULT_EVENT_TITLE', 'Work Shift'),
+      defaultEventColor: optionalEnv('DEFAULT_EVENT_COLOR', '9'),
+      useTeamsColors: optionalEnv('USE_TEAMS_COLORS', 'false').toLowerCase() === 'true',
     },
     tokenCachePath: resolve(optionalEnv('TOKEN_CACHE_PATH', './token-cache.json')),
   };

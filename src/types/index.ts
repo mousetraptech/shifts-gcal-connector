@@ -94,6 +94,8 @@ export interface Config {
     daysAhead: number;
     stateFilePath: string;
     defaultEventTitle: string;
+    defaultEventColor: string;
+    useTeamsColors: boolean;
   };
   tokenCachePath: string;
 }

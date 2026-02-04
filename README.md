@@ -145,6 +145,8 @@ crontab -l
 | `SYNC_DAYS_AHEAD` | `30` | Number of days to sync |
 | `STATE_FILE_PATH` | `./sync-state.json` | Path to sync state file |
 | `DEFAULT_EVENT_TITLE` | `Work Shift` | Fallback title when shift has no name |
+| `DEFAULT_EVENT_COLOR` | `9` | Google Calendar color ID (1-11) |
+| `USE_TEAMS_COLORS` | `false` | Use Teams shift colors instead of default |
 
 ## How It Works
 

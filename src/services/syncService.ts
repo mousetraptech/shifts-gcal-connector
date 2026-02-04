@@ -101,7 +101,11 @@ export class SyncService {
     }
 
     // Convert shift to calendar event
-    const event = shiftToCalendarEvent(shift, this.config.sync.defaultEventTitle);
+    const event = shiftToCalendarEvent(shift, {
+      defaultTitle: this.config.sync.defaultEventTitle,
+      defaultColor: this.config.sync.defaultEventColor,
+      useTeamsColors: this.config.sync.useTeamsColors,
+    });
     if (!event) {
       result.skipped++;
       return;

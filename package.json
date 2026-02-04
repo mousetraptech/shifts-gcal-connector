@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
+    "test": "npm run build && node --test dist/tests/**/*.test.js",
     "sync": "node dist/index.js",
     "auth:microsoft": "node dist/index.js --auth microsoft",
     "auth:google": "node dist/index.js --auth google"

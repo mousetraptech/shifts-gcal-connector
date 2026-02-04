@@ -57,11 +57,10 @@ export class SyncService {
     }
 
     // Fetch shifts from Teams
-    const shifts = await this.graphClient.getMyShifts(this.config.sync.daysAhead);
-    const currentShiftIds = new Set(shifts.map((s) => s.id));
+    const { shiftsToSync, allActiveShiftIds } = await this.graphClient.getMyShifts(this.config.sync.daysAhead);
 
     // Process each shift
-    for (const shift of shifts) {
+    for (const shift of shiftsToSync) {
       try {
         await this.processShift(shift, result, dryRun);
       } catch (error: any) {
@@ -72,7 +71,7 @@ export class SyncService {
     // Handle deletions - shifts that were previously synced but no longer exist
     const previousShiftIds = this.stateStore.getAllShiftIds();
     for (const shiftId of previousShiftIds) {
-      if (!currentShiftIds.has(shiftId)) {
+      if (!allActiveShiftIds.has(shiftId)) {
         try {
           await this.deleteShift(shiftId, result, dryRun);
         } catch (error: any) {

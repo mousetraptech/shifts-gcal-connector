@@ -55,6 +55,13 @@ export interface SyncRecord {
 }
 
 export interface SyncState {
+  version: number;
+  lastSync: string;
+  records: Record<string, SyncRecord>;
+}
+
+// Legacy state format (version 0 - no version field)
+export interface LegacySyncState {
   lastSync: string;
   records: Record<string, SyncRecord>;
 }

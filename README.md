@@ -98,6 +98,20 @@ npm run sync -- --dry-run
 npm run sync -- -n
 ```
 
+### Diagnostics
+
+Check your configuration and file permissions:
+
+```bash
+npm run doctor
+```
+
+This verifies:
+- Required environment variables are set
+- Credential files exist and are readable
+- Token cache files are accessible
+- Configuration values are valid
+
 ### Scheduled Sync
 
 Add a cron job to sync automatically. First, find your npm path:
